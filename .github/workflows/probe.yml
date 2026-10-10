@@ -1,0 +1,14 @@
+name: Windows runner availability probe
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: windows-2022
+    timeout-minutes: 3
+    steps:
+      - name: Confirm Windows runner availability
+        run: node -p process.platform
